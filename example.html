@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello, World</title>
+        <script src="goblok.js"></script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <div id="app"></div>
+        <script defer>
+            document.getElementById("header").appendChild(
+                tag("div").child$(
+                    RouterLink("/home", "Home"),
+                    RouterLink("/about", "About"),
+                    RouterLink("/contact", "Contact"),
+                ),
+            );
+            const r = Router({
+                "/" : () => tag("div").child$(
+                    tag("h1", "Welcome to my website"),
+                ),
+                "/about" : () => tag("div").child$(
+                    tag("h1", "This is about me"),
+                ),
+                "/contact" : () => tag("div").child$(
+                    tag("h1", "Contact me here"),
+                ),
+            })
+            document.getElementById("app").appendChild(r);
+        </script>
+    </body>
+</html>
